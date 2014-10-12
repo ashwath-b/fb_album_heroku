@@ -1,0 +1,18 @@
+<% if current_user %>
+	<%= link_to("Home", root_path) %><br/><br/>
+	<% if @links.count > 0 %>
+		<% @links.each do |link| %>
+			<span>
+				<%= image_tag("#{link.link}", class: "style_image") %> 
+			</span>
+		<% end %>
+	<% else %>
+		<h3>No photos to display</h3>
+	<% end %>
+	<br/>
+	<% unless @err_msg.nil? %>
+		<h4>One of the photo you tried to import was duplicate</h4>
+	<% end %>
+	<br/>
+	<%= link_to "To FaceBook Albums", "/sessions/albums", id: "fb_album" %>
+<% end %>

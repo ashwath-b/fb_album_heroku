@@ -1,0 +1,12 @@
+<br/>
+<%= link_to("Home", root_path) %><br/><br/>
+<br/>
+<% unless @format.nil? %>
+	<% @format.each do |data| %>
+		<div id=<%= "albums-"+data['id'] %>>
+			<%= link_to "#{data['name']}", {:controller => "sessions", :action => "photos", :album_id => "#{data['id']}"}, :method => :post %> <br/> <br/>
+		</div>
+	<% end %>
+<% else%>
+	coming in else here
+<% end %>

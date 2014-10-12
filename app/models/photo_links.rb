@@ -1,0 +1,4 @@
+class PhotoLinks < ActiveRecord::Base
+	belongs_to :user
+	validates_uniqueness_of :link
+end
