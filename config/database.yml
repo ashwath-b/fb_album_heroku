@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: fb_album_heroku_development
+  database: api_app_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: fb_album_heroku_production
-  # username: fb_album_heroku
+  username: fb_album_heroku
   password: <%= ENV['FB_ALBUM_HEROKU_DATABASE_PASSWORD'] %>
