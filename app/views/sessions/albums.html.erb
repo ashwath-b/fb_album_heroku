@@ -1,6 +1,4 @@
 <br/>
-<%= link_to("Home", root_path) %><br/><br/>
-<br/>
 <% unless @format.nil? %>
 	<% @format.each do |data| %>
 		<div id=<%= "albums-"+data['id'] %>>

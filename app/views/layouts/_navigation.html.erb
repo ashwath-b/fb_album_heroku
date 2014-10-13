@@ -1,0 +1,15 @@
+<span class="link_btn">
+	<%= link_to_unless_current "Home", root_path %>
+</span>
+
+<span class="link_btn">
+	<%= link_to_unless_current "To FaceBook Albums", "/sessions/albums", id: "fb_album" %>
+</span>
+
+<span class="link_btn">
+	<%= link_to_unless_current "<<Back", :back, id: "fb_album" %>
+</span>
+
+<span class="link_btn">
+	<%= link_to_unless_current "Sign out", signout_path, id: "sign_out_btn" %>
+</span>

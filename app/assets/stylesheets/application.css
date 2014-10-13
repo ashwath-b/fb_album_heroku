@@ -13,3 +13,64 @@
  *= require_tree .
  *= require_self
  */
+ @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+
+*{margin:5px;padding:5px;}
+
+body{
+  background:#4b8fed;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+}
+
+.welcome_msg{
+  color: white;
+	font-size: 125%;
+	font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+}
+
+div.social-wrap button {
+    padding-right: 45px;
+    height: 35px;
+    display: block;
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    color: white;
+    margin-bottom: 15px;
+    margin:0 auto;
+  	margin-top:1%;
+    width: 205px;
+    text-shadow: rgba(0, 0, 0, .5) -1px -1px 0;
+}
+
+button#facebook {
+  	height: 60px;
+  	width: 275px;
+    font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  	font-size: 15px;
+  	border: 2px solid; 
+    cursor:pointer;
+    text-transform: uppercase;
+    background-color: #3b5998;
+    background-size: 50px 55px;
+    background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+}
+
+a {
+	text-decoration:none;
+}
+
+
+.link_btn {
+	width:200px;
+	background:#4b8fed;
+	text-align:center;
+	margin-right:10px;
+	font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+	font-size: 15px;
+  color: white;
+	cursor:pointer;
+	border: 2px solid rgba(255,255,255,255) !important;
+	transition:background .3s;
+	-webkit-transition:background .3s;
+}

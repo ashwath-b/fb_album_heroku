@@ -1,16 +1,13 @@
 <%= form_for(:sessions, :url => {:action => 'import'}) do |f| %>
-	<% i = 1 %>
 	<% @pics.each do |data| %>
 		<span id=<%= "pic_"+data['id']%>>
 			<%= f.check_box data['images'][0]["source"] %> 
 			<%= image_tag("#{data['images'][0]["source"]}", class: "style_image") %> 
 		</span>
-		<% i += 1 %>
 	<% end %>
 	<br/>
 	<br/>
-	<div class="submit_btn" style="text-align:center;">  
-	    <button id="import_btn" >Import</button></tr>
-	</div> 
+	<p style="text-align: center;">
+	    <button class="link_btn"><h3>IMPORT</h3></button></tr>
+	</p>
 <% end %>
-<%= link_to "Back", :back, id: "fb_album" %>
