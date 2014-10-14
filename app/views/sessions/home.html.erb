@@ -1,0 +1,22 @@
+<% if current_user %>
+	<% if @links.count > 0 %>
+		<div class="user_images">
+			<% i = 1 %>
+			<% @links.each do |link| %>
+				<span class="images_cls" id=<%= "photo_id_#{i}" %>>
+						<a href=<%= link.link %>>
+							<%= image_tag("#{link.link}", class: "style_image") %> 
+						</a>
+				</span>
+				<% i += 1 %>
+			<% end %>
+		</div>
+	<% else %>
+		<h3>No photos to display</h3>
+	<% end %>
+	<br/>
+	<% unless @err_msg.nil? %>
+		<h4>One of the photo you tried to import was duplicate</h4>
+	<% end %>
+	<br/>
+<% end %>

@@ -1,10 +1,21 @@
 <br/>
 <% unless @format.nil? %>
+	<span class="welcome_msg">
+		Facebook Album List
+	</span>
+	<span class="help_text">
+		(Click on album name to see the photos) <br/><br/>
+	</span>
+	<% i = 1 %>
+	<span class="fb-album-list">
 	<% @format.each do |data| %>
-		<div id=<%= "albums-"+data['id'] %>>
-			<%= link_to "#{data['name']}", {:controller => "sessions", :action => "photos", :album_id => "#{data['id']}"}, :method => :post %> <br/> <br/>
-		</div>
+		<span class='album_name'>
+			<%= "#{i}. " %>
+			<%= link_to "#{data['name']}", {:controller => "sessions", :action => "photos", :album_id => "#{data['id']}"}, :method => :post %> 
+		<% i += 1 %>
+		</span>
 	<% end %>
+	</span>
 <% else%>
 	coming in else here
 <% end %>

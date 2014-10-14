@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:fb_token] = nil
     redirect_to root_url
   end
 
@@ -44,10 +45,10 @@ class SessionsController < ApplicationController
       end
     end
     p @err
-    redirect_to(:action => 'show', :err_msg => @err)
+    redirect_to(:action => 'home', :err_msg => @err)
   end
 
-  def show 
+  def home 
     @links = current_user.photo_links if current_user
     @err_msg = params[:err_msg] if current_user
   end

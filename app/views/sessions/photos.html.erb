@@ -1,13 +1,19 @@
 <%= form_for(:sessions, :url => {:action => 'import'}) do |f| %>
-	<% @pics.each do |data| %>
-		<span id=<%= "pic_"+data['id']%>>
-			<%= f.check_box data['images'][0]["source"] %> 
-			<%= image_tag("#{data['images'][0]["source"]}", class: "style_image") %> 
-		</span>
+	<% if @pics.count < 1 %>
+		No Photos Present in the Album
+	<% else %>
+		<% @pics.each do |data| %>
+			<span class="images_cls" id=<%= "pic_"+data['id']%>>
+				<%= f.check_box data['images'][0]["source"] %> 
+				<a href=<%= data['images'][0]["source"] %>>
+					<%= image_tag("#{data['images'][0]["source"]}", class: "style_image") %> 
+				</a>
+			</span>
+		<% end %>
+		<br/>
+		<br/>
+		<p style="text-align: center;">
+		    <button class="link_btn"><h3>IMPORT</h3></button></tr>
+		</p>
 	<% end %>
-	<br/>
-	<br/>
-	<p style="text-align: center;">
-	    <button class="link_btn"><h3>IMPORT</h3></button></tr>
-	</p>
 <% end %>
