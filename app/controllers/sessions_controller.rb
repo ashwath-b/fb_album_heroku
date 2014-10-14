@@ -60,7 +60,7 @@ class SessionsController < ApplicationController
         end
       end
       if num_photos >= 10
-        flash[:notice] = "You can have maximum of TEN photos"
+        flash[:notice] = "Maximum of TEN photos Allowed"
       else
         flash[:notice] = nil
       end
@@ -93,10 +93,10 @@ class SessionsController < ApplicationController
       end
     end
     if i == 0
-      flash[:errors] = "You did not select any Photos"
+      flash[:errors] = "No Photos were selected"
       flash[:notice] = nil
     else
-      flash[:notice] = "Successfully deleted #{i} photos"
+      flash[:notice] = "Deleted #{i} photos"
       flash[:errors] = nil
     end
     redirect_to root_url, flash: { notice: flash[:notice], frm: 'delete' } if !flash[:notice].nil?
