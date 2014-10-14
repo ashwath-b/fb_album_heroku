@@ -11,5 +11,13 @@ class ApplicationController < ActionController::Base
   def current_token
   	Koala::Facebook::API.new(current_user.oauth_token) if session[:user_id]
   end
+
+  # def authenticate_example!
+  #   p "coming appl"
+  #   if !current_user
+  #     redirect_to(:controller => 'session', :action => 'login')
+  #   end
+  # end
+
   helper_method :current_user, :current_token
 end

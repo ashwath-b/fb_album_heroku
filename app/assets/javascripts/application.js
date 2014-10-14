@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+// $(document).ready(function(){
+// 	$("#sign_out_btn").click(function(){
+// 		alert("Hello signout");
+//    		FB.logout(function(response) {
+  			
+// 		});
+//   	});
+// });
