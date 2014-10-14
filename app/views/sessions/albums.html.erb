@@ -8,13 +8,23 @@
 	</span>
 	<% i = 1 %>
 	<span class="fb-album-list">
+	<table>
 	<% @format.each do |data| %>
+		<% if (i-1)%3 == 0 %>
+			<tr>
+		<% end %>
 		<span class='album_name'>
-			<%= "#{i}. " %>
-			<%= link_to "#{data['name']}", {:controller => "sessions", :action => "photos", :album_id => "#{data['id']}"}, :method => :post %> 
+			<td width="350px">
+			<%= "#{i}." %>
+			<%= link_to "#{data['name']}", {:controller => "sessions", :action => "photos", :album_id => "#{data['id']}"} %> 
+			</td>
 		<% i += 1 %>
 		</span>
+		<% if (i-1)%3 == 0 %>
+			</tr>
+		<% end %>
 	<% end %>
+	</table>
 	</span>
 <% else%>
 	coming in else here

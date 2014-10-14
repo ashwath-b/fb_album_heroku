@@ -1,19 +1,9 @@
 Rails.application.routes.draw do
 
-  # get 'temps/index'
   root 'sessions#home'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'sessions/albums'
-
-  get 'sessions/photos'
-  post 'sessions/photos'
   
   match ':controller(/:action(/:id))', :via => [:get, :post]
 

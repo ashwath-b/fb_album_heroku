@@ -1,4 +1,6 @@
 <% if current_user %>
+	<span class="help_text"><%= flash[:notice] unless flash[:notice].nil? %></span>
+	<span class="help_text"><%= flash[:errors] unless flash[:errors].nil? %></span>
 	<% if @links.count > 0 %>
 		<div class="user_images">
 			<% i = 1 %>
