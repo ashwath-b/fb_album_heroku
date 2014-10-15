@@ -15,16 +15,8 @@ class SessionsController < ApplicationController
   def albums
     if current_user
       @graph = current_token
-      pho = @graph.get_connections("me", "albums")
-      @format = []
-      pho.each do |l|
-        hash = {}
-        hash["id"] = l["id"]
-        hash["link"] = l["link"]
-        hash["name"] = l["name"]
-        hash["count"] = l["count"]
-        @format << hash
-      end
+      @album_list = @graph.get_connections("me", "albums")
+      p @album_list
     else
       redirect_to root_url
     end
@@ -33,8 +25,8 @@ class SessionsController < ApplicationController
   def photos
     if current_user
     # redirect_to :action => 'login' if !current_user
+    #   @count = current_user.photo_links
       @graph = current_token
-      @count = current_user.photo_links
       @pics = @graph.get_connections(params["album_id"],'photos')
     else
       redirect_to root_url
@@ -99,8 +91,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Deleted #{i} photos"
       flash[:errors] = nil
     end
-    redirect_to root_url, flash: { notice: flash[:notice], frm: 'delete' } if !flash[:notice].nil?
-    redirect_to root_url, flash: { errors: flash[:errors], frm: 'delete' } if !flash[:errors].nil?
+    redirect_to root_url, flash: { notice: flash[:notice], errors: flash[:errors] }
     # redirect_to(:action => 'home', :err => flash[:errors], :suc => flash[:notice], :frm => 'delete')
   end
 

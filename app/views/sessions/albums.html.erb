@@ -1,5 +1,5 @@
 <br/>
-<% unless @format.nil? %>
+<% unless @album_list.empty? %>
 	<span class="welcome_msg">
 		Facebook Album List
 	</span>
@@ -9,7 +9,7 @@
 	<% i = 1 %>
 	<span class="fb-album-list">
 	<table>
-	<% @format.each do |data| %>
+	<% @album_list.each do |data| %>
 		<% if (i-1)%3 == 0 %>
 			<tr>
 		<% end %>
@@ -18,7 +18,7 @@
 			<%= "#{i}." %>
 			<%= link_to "#{data['name']}", {:controller => "sessions", :action => "photos", :album_id => "#{data['id']}"} %> 
 			</td>
-		<% i += 1 %>
+			<% i += 1 %>
 		</span>
 		<% if (i-1)%3 == 0 %>
 			</tr>
@@ -27,5 +27,5 @@
 	</table>
 	</span>
 <% else%>
-	coming in else here
+	<span class="welcome_msg">No Albums in your Facebook</span>
 <% end %>
