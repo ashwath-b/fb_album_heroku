@@ -24,8 +24,6 @@ class SessionsController < ApplicationController
 
   def photos
     if current_user
-    # redirect_to :action => 'login' if !current_user
-    #   @count = current_user.photo_links
       @graph = current_token
       @pics = @graph.get_connections(params["album_id"],'photos')
     else
@@ -57,7 +55,6 @@ class SessionsController < ApplicationController
         flash[:notice] = nil
       end
       redirect_to root_url, flash: { notice: flash[:notice], errors: flash[:errors] } 
-      # redirect_to root_url, flash: { errors: flash[:errors], frm: 'import' } if !flash[:errors].nil?
     else
       redirect_to root_url 
     end
