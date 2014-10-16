@@ -1,16 +1,7 @@
 <%= form_for(:photo_links, :url => {:action => 'delete'}) do |f| %>
-	<% if @photos.count > 0 %>
+	<% if @links.count > 0 %>
 		<% i = 1 %>
-		<% @photos.each do |link| %>
-			<span class="images_cls" id=<%= "photo_id_#{i}" %>>
-				<%= f.check_box link.link %> 
-				<a href=<%= link.link %>>
-					<%= image_tag("#{link.link}", class: "style_image") %> 
-				</a>
-			</span>
-			<% i += 1 %>
-			</span>
-		<% end %>
+		<%= render partial: "image_display", locals: {links: @links, check_box_flag: true, :f => f} %>
 		<br/>
 		<br/>
 		<p style="text-align: center;">

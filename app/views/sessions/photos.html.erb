@@ -2,14 +2,7 @@
 	<% if @pics.count < 1 %>
 		No Photos Present in the Album
 	<% else %>
-		<% @pics.each do |data| %>
-			<span class="images_cls" id=<%= "pic_"+data['id']%>>
-				<%= f.check_box data['images'][0]["source"] %> 
-				<a href=<%= data['images'][0]["source"] %>>
-					<%= image_tag("#{data['images'][0]["source"]}", class: "style_image") %> 
-				</a>
-			</span>
-		<% end %>
+		<%= render partial: "image_display", locals: {links: @links, check_box_flag: true, :f => f} %>
 		<br/>
 		<br/>
 		<p style="text-align: center;">

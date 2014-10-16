@@ -1,20 +1,11 @@
-
-	<span class="help_text"><%= flash[:notice] unless flash[:notice].nil? %></span>
-	<span class="help_text"><%= flash[:errors] unless flash[:errors].nil? %></span>
-	<% if @links.count > 0 %>
-		<div class="user_images">
-			<% i = 1 %>
-			<% @links.each do |link| %>
-				<span class="images_cls" id=<%= "photo_id_#{i}" %>>
-						<a href=<%= link.link %>>
-							<%= image_tag("#{link.link}", class: "style_image") %> 
-						</a>
-				</span>
-				<% i += 1 %>
-			<% end %>
-		</div>
-	<% else %>
-		<h3>No photos to display</h3>
-	<% end %>
-	<br/>
-	<br/>
+<span class="help_text"><%= flash[:notice] unless flash[:notice].nil? %></span>
+<span class="help_text"><%= flash[:errors] unless flash[:errors].nil? %></span>
+<% if @links.count > 0 %>
+	<div class="user_images">
+		<%= render partial: "image_display", locals: {links: @links, check_box_flag: false} %>
+	</div>
+<% else %>
+	<h3>No photos to display</h3>
+<% end %>
+<br/>
+<br/>

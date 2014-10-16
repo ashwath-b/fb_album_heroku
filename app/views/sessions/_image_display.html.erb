@@ -1,0 +1,11 @@
+<!-- home.html -->
+<% i = 1 %>
+<% links.each do |link| %>
+	<span class="images_cls" id=<%= "photo_id_#{i}" %>>
+		<%= f.check_box link['link'] if check_box_flag %> 
+		<a href=<%= link['link'] %>>
+			<%= image_tag("#{link['link']}", class: "style_image") %> 
+		</a>
+	</span>
+	<% i += 1 %>
+<% end %>
