@@ -57,6 +57,7 @@ class SessionsController < ApplicationController
 
   def home 
     @links = current_user.photo_links if current_user
+    num = @links.count
     @err_msg = params[:err_msg] if current_user
   end
 
@@ -89,4 +90,7 @@ class SessionsController < ApplicationController
     redirect_to :action => 'home' if current_user
   end
 
+  def update
+    # Just doing it for tesing the merging process
+  end
 end
